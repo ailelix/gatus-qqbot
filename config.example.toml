@@ -1,0 +1,40 @@
+[server]
+address = "127.0.0.1"
+port = 8080
+alert_path = "/api/v1/gatus/alerts"
+auth_token = "replace-with-a-long-random-token"
+max_body_bytes = 65536
+shutdown_timeout = "10s"
+
+[qq]
+app_id = "replace-with-bot-app-id"
+app_secret = "replace-with-bot-app-secret"
+request_timeout = "10s"
+delivery_timeout = "1m"
+# Waiting alerts only; the one active delivery is not counted.
+max_pending_alerts = 64
+# Maximum wait for the initial READY and for a reconnect to reach READY/RESUMED.
+gateway_ready_timeout = "30s"
+
+[[qq.targets]]
+name = "operations-group"
+type = "group"
+id = "replace-with-group-openid"
+
+# [[qq.targets]]
+# name = "on-call-user"
+# type = "user"
+# id = "replace-with-user-openid"
+
+# [[qq.targets]]
+# name = "alerts-channel"
+# type = "channel"
+# id = "replace-with-channel-id"
+
+[message]
+prefix = "[Gatus]"
+max_length = 1800
+
+[log]
+level = "info"
+format = "text"

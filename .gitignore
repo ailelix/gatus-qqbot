@@ -1,0 +1,9 @@
+# Editor
+.idea/
+.vscode/
+
+# Build
+/gatus-qqbot
+/config.toml
+*.out
+coverage.txt
